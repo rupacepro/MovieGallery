@@ -1,0 +1,38 @@
+﻿@model List<Movie>
+@{
+    ViewBag.Title = "My Movies";
+}
+<div class="app-container">
+    <h2 class="page-title">Movie List</h2>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-controller="Movie" asp-action="Add" class="btn btn-success add-new-movie mb-4">Add New Movie</a>
+    }
+
+    <div class="movie-grid">
+        @foreach (var movie in Model)
+        {
+            <div class="movie-card">
+                <h3 class="movie-title">@movie.Name (@movie.Year)</h3>
+                <p class="movie-genre">🎬 Genre: @movie.Genre.Name</p>
+                <p>⭐ Rating: @movie.Rating</p>
+                <p>📅 Release Date: @(movie.ReleaseDate.HasValue ? movie.ReleaseDate.Value.ToString("MM/dd/yyyy") : "N/A")</p>
+                <p>🎥 Director: @movie.Director</p>
+                <p>⏱ Duration: @movie.Duration</p>
+
+                <div class="movie-actions">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-controller="Movie" asp-action="Edit"
+                           asp-route-id="@movie.MovieId" asp-route-slug="@movie.Slug" class="btn btn-warning">Edit</a>
+                        <a asp-controller="Movie" asp-action="Delete"
+                           asp-route-id="@movie.MovieId" asp-route-slug="@movie.Slug" class="btn btn-danger">Delete</a>
+                    }
+                    <a asp-controller="Review" asp-action="Index"
+                       asp-route-movieId="@movie.MovieId" class="btn btn-primary">Reviews</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

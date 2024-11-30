@@ -1,0 +1,17 @@
+﻿@model MovieGallery.Models.Review
+@using System.Security.Claims
+
+<h2>Add Review</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Content">Add your thoughts about this movie</label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+        <span asp-validation-for="UserId" class="text-danger"></span>
+        <span asp-validation-for="CreatedAt" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="UserId" value="@User.FindFirst(ClaimTypes.NameIdentifier)?.Value" />
+    <input type="hidden" asp-for="MovieId" />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

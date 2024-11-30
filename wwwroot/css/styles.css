@@ -1,0 +1,469 @@
+﻿/* General App Styling */
+.app-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.add-new-movie {
+    display: block;
+    margin: 0 auto 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+    .add-new-movie:hover {
+        background-color: #218838;
+    }
+
+/* Movie Grid Layout */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Movie Card Styling */
+.movie-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+    .movie-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+.movie-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.movie-genre {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #17a2b8;
+    margin-bottom: 5px;
+}
+
+.movie-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+    .movie-actions .btn {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        border-radius: 5px;
+        text-align: center;
+        transition: background 0.3s;
+    }
+
+    .movie-actions .btn-warning:hover {
+        background-color: #f39c12;
+        color: white;
+    }
+
+    .movie-actions .btn-danger:hover {
+        background-color: #e74c3c;
+        color: white;
+    }
+
+    .movie-actions .btn-primary:hover {
+        background-color: #3498db;
+        color: white;
+    }
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .movie-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+
+/* Form Page Styling */
+.form-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.form-control {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: #3498db;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+    .form-actions .btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+    }
+
+    .form-actions .btn-primary:hover {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+    .form-actions .btn-secondary:hover {
+        background-color: #7f8c8d;
+        color: #fff;
+    }
+
+/* Responsive Design for Form */
+@media (max-width: 768px) {
+    .form-card {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+/* Delete Confirmation Page */
+.movie-info {
+    margin-bottom: 20px;
+}
+
+.movie-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Danger-specific styles for Delete button */
+.btn-danger {
+    background-color: #e74c3c;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+.text-danger {
+    color: #e74c3c;
+}
+
+/* Responsive Design for Delete Confirmation */
+@media (max-width: 768px) {
+    .form-card {
+        padding: 15px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* General Styling for Reviews */
+.page-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #34495e;
+}
+
+.add-review-button {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+    .add-review-button:hover {
+        background-color: #27ae60;
+    }
+
+/* Review Card Container */
+.review-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Individual Review Card */
+.review-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-author {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.review-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #7f8c8d;
+}
+
+/* Speech Button Styling */
+.read-review-button {
+    background-color: #3498db;
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    .read-review-button:hover {
+        background-color: #2980b9;
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .review-card {
+        padding: 15px;
+    }
+
+    .add-review-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .read-review-button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
+
+/* Movie Title Styling */
+.movie-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Adjust margin for page title to avoid clutter */
+.page-title {
+    margin-top: 10px;
+    font-size: 1.8rem;
+    color: #34495e;
+}
+
+
+
+/* Styling for the review form */
+.add-review-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f9f9; /* Light background color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+    .add-review-container h2 {
+        text-align: center;
+        color: #333; /* Darker text for the title */
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    /* Form styling */
+    .add-review-container form {
+        display: flex;
+        flex-direction: column;
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Label styling */
+label {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+/* Textarea for review content */
+textarea {
+    height: 150px;
+    resize: vertical;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    textarea:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+/* Validation error message */
+.text-danger {
+    font-size: 0.875rem;
+    color: #e74c3c; /* Red color for errors */
+    margin-top: 5px;
+}
+
+/* Submit button */
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+/* Cancel button */
+.cancel-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .cancel-button:hover {
+        background-color: #5a6268;
+    }
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .add-review-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+        .add-review-container h2 {
+            font-size: 1.5rem;
+        }
+
+    textarea {
+        height: 120px;
+    }
+
+    button[type="submit"], .cancel-button {
+        padding: 10px 15px;
+    }
+}

@@ -1,0 +1,70 @@
+﻿@model Movie
+@{
+    string title = ViewBag.Action + " Movie";
+    ViewBag.Title = title;
+}
+<div class="app-container">
+    <div class="form-card">
+        <h2 class="form-title">@ViewBag.Title</h2>
+        <form asp-action="Edit" method="post" novalidate>
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <!-- Name -->
+            <div class="form-group">
+                <label asp-for="Name" class="form-label">Name</label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+
+            <!-- Year -->
+            <div class="form-group">
+                <label asp-for="Year" class="form-label">Year</label>
+                <input asp-for="Year" class="form-control" />
+            </div>
+
+            <!-- Rating -->
+            <div class="form-group">
+                <label asp-for="Rating" class="form-label">Rating</label>
+                <input asp-for="Rating" class="form-control" />
+            </div>
+
+            <!-- Genre -->
+            <div class="form-group">
+                <label asp-for="GenreId" class="form-label">Genre</label>
+                <select asp-for="GenreId" class="form-control">
+                    <option value="">Select a genre</option>
+                    @foreach (Genre g in ViewBag.Genres)
+                    {
+                        <option value="@g.GenreId">@g.Name</option>
+                    }
+                </select>
+            </div>
+
+            <!-- Release Date -->
+            <div class="form-group">
+                <label asp-for="ReleaseDate" class="form-label">Release Date</label>
+                <input asp-for="ReleaseDate" class="form-control" type="date" />
+            </div>
+
+            <!-- Director -->
+            <div class="form-group">
+                <label asp-for="Director" class="form-label">Director</label>
+                <input asp-for="Director" class="form-control" />
+            </div>
+
+            <!-- Duration -->
+            <div class="form-group">
+                <label asp-for="Duration" class="form-label">Duration (minutes)</label>
+                <input asp-for="Duration" class="form-control" />
+            </div>
+
+            <!-- Hidden MovieId -->
+            <input type="hidden" asp-for="MovieId" />
+
+            <!-- Buttons -->
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

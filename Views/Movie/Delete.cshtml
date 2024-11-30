@@ -1,0 +1,21 @@
+﻿@model Movie
+@{
+    ViewBag.Title = "Delete Movie";
+}
+<div class="app-container">
+    <div class="form-card">
+        <h2 class="form-title text-danger">Confirm Deletion</h2>
+        <div class="movie-info">
+            <h3 class="movie-title">@Model.Name (@Model.Year)</h3>
+            <p><strong>Release Date:</strong> @(Model.ReleaseDate.HasValue ? Model.ReleaseDate.Value.ToString("MM/dd/yyyy") : "N/A")</p>
+        </div>
+
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="MovieId" />
+            <div class="form-actions">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

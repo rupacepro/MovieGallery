@@ -1,0 +1,37 @@
+﻿@model IEnumerable<MovieGallery.Models.Review>
+
+<div class="app-container">
+    <h2 class="movie-title">@ViewBag.movie.Name (@ViewBag.movie.Year)</h2>
+    <h3 class="page-title">Reviews</h3>
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning text-center mt-4" role="alert">
+            <h4 class="alert-heading">No Reviews Yet</h4>
+        </div>
+    }
+    @if (User.IsInRole("User"))
+    {
+        <a href="@Url.Action("Create", "Review", new { movieId = ViewBag.movieId })" class="btn btn-success add-review-button">
+            Add a Review
+        </a>
+    }
+
+    <div class="review-container">
+        @foreach (var review in Model)
+        {
+            <div class="review-card">
+                <h5 class="review-author">@review.User.UserName</h5>
+                <p class="review-content">@review.Content</p>
+                <button class="btn btn-primary read-review-button" onclick="readReview('@review.Content')">Listen</button>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    function readReview(content) {
+        const speech = new SpeechSynthesisUtterance(content);
+        speech.lang = "en-US"; // Set the language
+        window.speechSynthesis.speak(speech);
+    }
+</script>
