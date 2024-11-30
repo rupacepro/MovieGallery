@@ -300,3 +300,4 @@ C:\Users\rupac\Desktop\3rd semester\.net\MovieGallery\MovieGallery\bin\Debug\net
 C:\Users\rupac\Desktop\3rd semester\.net\MovieGallery\MovieGallery\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\rupac\Desktop\3rd semester\.net\MovieGallery\MovieGallery\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\rupac\Desktop\3rd semester\.net\MovieGallery\MovieGallery\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\rupac\Desktop\3rd semester\.net\MovieGallery\MovieGallery\obj\Debug\net8.0\MovieGallery.sourcelink.json

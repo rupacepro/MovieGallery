@@ -1,6 +1,7 @@
 ﻿@model List<Movie>
 @{
     ViewBag.Title = "My Movies";
+    var notifications = ViewBag.Notifications as List<Notification>;
 }
 <div class="app-container">
     <h2 class="page-title">Movie List</h2>
@@ -8,6 +9,36 @@
     @if (User.IsInRole("Admin"))
     {
         <a asp-controller="Movie" asp-action="Add" class="btn btn-success add-new-movie mb-4">Add New Movie</a>
+    }
+
+    @if (User.IsInRole("User"))
+    {
+        <div class="notification-container">
+            <!-- Notification Icon -->
+            <a href="#" class="notification-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell"></i>
+                @if (notifications.Count > 0)
+                {
+                    <span class="badge badge-danger">@notifications.Count</span>
+                }
+            </a>
+
+            <!-- Notification Dropdown Menu -->
+            <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                @foreach (var notification in notifications)
+                {
+                    <a class="dropdown-item" href="@Url.Action("MarkAsRead", "Home", new { notificationId = notification.NotificationId })">
+                        <p>@notification.Message</p>
+                        <small>@notification.CreatedAt.ToString("MM/dd/yyyy HH:mm")</small>
+                    </a>
+                }
+
+                @if (notifications.Count == 0)
+                {
+                    <a class="dropdown-item text-muted" href="#">No new notifications</a>
+                }
+            </div>
+        </div>
     }
 
     <div class="movie-grid">
