@@ -76,7 +76,13 @@ namespace MovieGallery.Controllers
         public IActionResult Delete(int id)
         {
             var movie = context.Movies.Find(id);
-
+            return View(movie);
+        }
+        [HttpPost]
+        public IActionResult Delete(Movie movie)
+        {
+            context.Movies.Remove(movie);
+            context.SaveChanges();
             //crate a notification for all users
             var users = context.Users.ToList();
             foreach (var user in users)
@@ -90,14 +96,6 @@ namespace MovieGallery.Controllers
                 };
                 context.Notifications.Add(notification);
             }
-            context.SaveChanges();
-
-            return View(movie);
-        }
-        [HttpPost]
-        public IActionResult Delete(Movie movie)
-        {
-            context.Movies.Remove(movie);
             context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
